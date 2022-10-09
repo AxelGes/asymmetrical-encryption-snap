@@ -2487,6 +2487,7 @@ __metadata:
     "@metamask/eslint-config-typescript": ^10.0.0
     "@typescript-eslint/eslint-plugin": ^5.33.0
     "@typescript-eslint/parser": ^5.33.0
+    cryptico-ts-fix: ^1.0.0
     eslint: ^8.21.0
     eslint-config-prettier: ^8.1.0
     eslint-plugin-import: ^2.26.0
@@ -5764,7 +5765,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"crypto-browserify@npm:^3.0.0":
+"cryptico-ts-fix@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "cryptico-ts-fix@npm:1.0.0"
+  checksum: bc9ee724ce7624b4e4d4df92ba95a46293ffd517362484ba1717ed18305d4b078279860f0193011d77b34e9b92d23a940c535b6312fdfebc7d8b57649a28055e
+  languageName: node
+  linkType: hard
+
+"crypto-browserify@npm:^3.0.0, crypto-browserify@npm:^3.12.0":
   version: 3.12.0
   resolution: "crypto-browserify@npm:3.12.0"
   dependencies:
@@ -13484,6 +13492,7 @@ __metadata:
     "@types/styled-components": ^5.1.25
     "@typescript-eslint/eslint-plugin": ^5.33.0
     "@typescript-eslint/parser": ^5.33.0
+    crypto-browserify: ^3.12.0
     eslint: ^8.21.0
     eslint-config-prettier: ^8.1.0
     eslint-plugin-import: ^2.26.0

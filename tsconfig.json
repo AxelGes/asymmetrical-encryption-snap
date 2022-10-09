@@ -4,6 +4,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "module": "CommonJS",
+    "isolatedModules": false,
     "moduleResolution": "node",
     "useUnknownInCatchVariables": false,
     "sourceMap": true,

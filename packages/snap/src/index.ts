@@ -1,4 +1,5 @@
 import { OnRpcRequestHandler } from '@metamask/snap-types';
+import cryptico from "cryptico-ts-fix"
 
 /**
  * Get a message from the origin. For demonstration purposes only.
@@ -20,21 +21,18 @@ export const getMessage = (originString: string): string =>
  * @throws If the request method is not valid for this snap.
  * @throws If the `snap_confirm` call failed.
  */
-export const onRpcRequest: OnRpcRequestHandler = ({ origin, request }) => {
+export const onRpcRequest: OnRpcRequestHandler = async ({ origin, request }) => {
   switch (request.method) {
-    case 'hello':
-      return wallet.request({
-        method: 'snap_confirm',
-        params: [
-          {
-            prompt: getMessage(origin),
-            description:
-              'This custom confirmation is just for display purposes.',
-            textAreaContent:
-              'But you can edit the snap source code to make it do something, if you want to!',
-          },
-        ],
-      });
+    case 'getUserKeys': {
+      const PRIVATE_KEY = await wallet.request({
+        method: 'snap_getAppKey',
+      }) 
+
+      const rsaKey = cryptico.generateRSAKey(PRIVATE_KEY, 1028);
+      const publicKey = cryptico.publicKeyString(rsaKey);
+
+      return {publicKey, privateKey: PRIVATE_KEY};
+    }
     default:
       throw new Error('Method not found.');
   }
